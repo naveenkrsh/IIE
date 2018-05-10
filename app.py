@@ -7,42 +7,11 @@ from ln2sql.ln2sql import Ln2sql
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-
+import rules
 
 app = Flask(__name__)
 
-columnDict = {'actual service': 'ActualService',
- 'category id': 'CategoryId',
- 'cause': 'Cause',
- 'closed by': 'ClosedBy',
- 'closed date time': 'ClosedDateTime',
- 'closed date': 'ClosedDateTime',
- 'closed on': 'ClosedDateTime',
- 'closed duration': 'ClosedDuration',
- 'created by': 'CreatedBy',
- 'created date time': 'CreatedDateTime',
- 'created date': 'CreatedDateTime',
- 'created on': 'CreatedDateTime',
- 'customer location': 'CustomerLocation',
- 'email': 'Email',
- 'id': 'ID',
- 'impact': 'Impact',
- 'incident number': 'IncidentNumber',
- 'last mod by': 'LastModBy',
- 'last mod date time': 'LastModDateTime',
- 'phone': 'Phone',
- 'priority': 'Priority',
- 'resolution': 'Resolution',
- 'service': 'Service',
- 'sla': 'SLA',
- 'source': 'Source',
- 'status': 'Status',
- 'subject': 'Subject',
- 'symptom': 'Symptom',
- 'urgency': 'Urgency',
- 'category name':'CategoryName',
- 'city name':'cityName'
- }
+
 
 
 @app.route('/')
@@ -54,8 +23,9 @@ def gen_query():
     body = request.get_json()
     query = body["Text"]
     query = query.lower()
-    for i in columnDict.keys():
-        query = query.replace(i,columnDict[i])
+    query=rules.applyCommonNlp(query)
+
+    
 
     query = query.lower()
     print(query)
@@ -68,7 +38,7 @@ def gen_query():
     print(query)
 
     sql = Ln2sql(
-        database_path='database_store/city.sql',
+        database_path='database_store/ism.sql',
         language_path='lang_store/english.csv',
         json_output_path=None,
         thesaurus_path=None,
