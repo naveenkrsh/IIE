@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
-  `cityName` varchar(30) NOT NULL
+  `cityname` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`id`, `cityName`) VALUES
+INSERT INTO `city` (`id`, `cityname`) VALUES
 (1, 'Pune'),
 (2, 'Hillwood'),
 (3, 'San Jose'),
@@ -45,10 +45,10 @@ INSERT INTO `city` (`id`, `cityName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emp`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE `emp` (
+CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `cityId` int(11) NOT NULL,
@@ -56,10 +56,10 @@ CREATE TABLE `emp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `emp`
+-- Dumping data for table `employee`
 --
 
-INSERT INTO `emp` (`id`, `name`, `cityId`, `score`) VALUES
+INSERT INTO `employee` (`id`, `name`, `cityId`, `score`) VALUES
 (1, 'Lord Brain', 1, 5),
 (2, 'Matthew', 2, 4),
 (3, 'Ferrero Jeremy', 3, 6),
@@ -83,9 +83,9 @@ ALTER TABLE `city`
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `emp`
+-- Indexes for table `employee`
 --
-ALTER TABLE `emp`
+ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cityId` (`cityId`);
 
@@ -94,19 +94,19 @@ ALTER TABLE `emp`
 --
 
 --
--- AUTO_INCREMENT for table `emp`
+-- AUTO_INCREMENT for table `employee`
 --
-ALTER TABLE `emp`
+ALTER TABLE `employee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `emp`
+-- Constraints for table `employee`
 --
-ALTER TABLE `emp`
-  ADD CONSTRAINT `emp_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`id`);
+ALTER TABLE `employee`
+  ADD CONSTRAINT `emp_ibfke_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

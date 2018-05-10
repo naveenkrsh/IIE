@@ -93,10 +93,13 @@ class Database:
             for alter_table_string in alter_tables_string:
                 if 'TABLE' in alter_table_string:
                     self.alter_table(alter_table_string)
-            print(self.get_tables())
-            print(self.get_foreign_key_names_of_table("Category"))
-            print(self.get_foreign_key_names_of_table("emp"))
-            #print(self.get_k("emp"))
+            # print(self.get_tables())
+            # print(self.get_foreign_key_names_of_table("Category"))
+            # print(self.get_foreign_key_names_of_table("emp"))
+            # #print([i.name() for i in self.get_table_by_name("incident").get_columns()])
+            # #print(self.get_table_by_name("incident").get_columns()) 
+            # for x in self.get_table_by_name("incident").get_columns():
+            #     print(x.name)
 
     def predict_type(self, string):
         if 'int' in string.lower():

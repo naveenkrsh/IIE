@@ -5,10 +5,10 @@ MIN: minimum
 COUNT: number, how many, count
 JUNCTION: and
 DISJUNCTION: or
-GREATER: greater, over, greater than, more than, over than
-LESS: less , less than
+GREATER: greater, over, greater than, more than, over than, after
+LESS: less , less than,before
 BETWEEN: between, per
-ORDER: order, ordered
+ORDER: order, ordered,sort
 ASC: ascending, increasing
 DESC: descending, decreasing, inverse, reverse, opposite
 GROUP: group, grouped
