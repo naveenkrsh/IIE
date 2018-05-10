@@ -14,6 +14,7 @@ def hello_world():
 def gen_query():
     body = request.get_json()
     query = body["Text"]
+    query = query.lower()
     print(query)
     sql = ln2sql = Ln2sql(
         database_path='database_store/ism.sql',
