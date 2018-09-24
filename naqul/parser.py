@@ -75,7 +75,7 @@ class SelectParser(Thread):
                 for i in range(0, len(self.phrase)):
                     for column_name in self.columns_of_select:
                         if (self.phrase[i] == column_name) or (
-                                self.phrase[i] in self.database_object.get_column_with_this_name(column_name).equivalences):
+                                    self.phrase[i] in self.database_object.get_column_with_this_name(column_name).equivalences):
                             select_phrases.append(self.phrase[previous_index:i + 1])
                             previous_index = i + 1
 
@@ -328,10 +328,10 @@ class WhereParser(Thread):
         interval_offset = list(range(current_column_offset, next_column_offset))
 
         if (len(self.intersect(interval_offset, self.negation_keyword_offset)) >= 1) and (
-                len(self.intersect(interval_offset, self.greater_keyword_offset)) >= 1):
+                    len(self.intersect(interval_offset, self.greater_keyword_offset)) >= 1):
             return '<'
         elif (len(self.intersect(interval_offset, self.negation_keyword_offset)) >= 1) and (
-                len(self.intersect(interval_offset, self.less_keyword_offset)) >= 1):
+                    len(self.intersect(interval_offset, self.less_keyword_offset)) >= 1):
             return '>'
         if (len(self.intersect(interval_offset, self.less_keyword_offset)) >= 1):
             return '<'
@@ -417,64 +417,65 @@ class WhereParser(Thread):
                 phrase_offset_string += phrase_keyword + " "
 
                 for keyword in self.count_keywords:
-                    if keyword in phrase_offset_string:    # before the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # before the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.count_keyword_offset.append(i)
 
                 for keyword in self.sum_keywords:
-                    if keyword in phrase_offset_string:    # before the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # before the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.sum_keyword_offset.append(i)
 
                 for keyword in self.average_keywords:
-                    if keyword in phrase_offset_string:    # before the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # before the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.average_keyword_offset.append(i)
 
                 for keyword in self.max_keywords:
-                    if keyword in phrase_offset_string:    # before the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # before the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.max_keyword_offset.append(i)
 
                 for keyword in self.min_keywords:
-                    if keyword in phrase_offset_string:    # before the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # before the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.min_keyword_offset.append(i)
 
                 for keyword in self.greater_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.greater_keyword_offset.append(i)
 
                 for keyword in self.less_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.less_keyword_offset.append(i)
 
                 for keyword in self.between_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.between_keyword_offset.append(i)
 
                 for keyword in self.junction_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.junction_keyword_offset.append(i)
 
                 for keyword in self.disjunction_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.disjunction_keyword_offset.append(i)
 
                 for keyword in self.negation_keywords:
-                    if keyword in phrase_offset_string:
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.negation_keyword_offset.append(i)
 
                 for keyword in self.like_keywords:
-                    if keyword in phrase_offset_string:    # after the column
-                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string)):
+                    if keyword in phrase_offset_string :    # after the column
+                        if (phrase_offset_string.find(keyword) + len(keyword) + 1 == len(phrase_offset_string) ) :
                             self.like_keyword_offset.append(i)
+
 
         for table_of_from in self.tables_of_from:
             where_object = Where()
@@ -535,9 +536,9 @@ class GroupByParser(Thread):
             return str(one_table_of_column) + '.' + str(column)
 
     def run(self):
-        for table_of_from in self.tables_of_from:
+        # for table_of_from in self.tables_of_from:
         #     columns = self.database_object.get_table_by_name(table_of_from).get_columns()
-        #     for phrase in self.phrases[0]:
+        #     for phrase in self.phrases:
         #         for column in columns:
         #             if (phrase == column.name) or (phrase in column.equivalences):
         #                 column_with_alias = self.get_column_name_with_alias_table(column.name, table_of_from)
@@ -545,6 +546,8 @@ class GroupByParser(Thread):
         #                 group_by_object.set_column(column_with_alias)
         #                 self.group_by_objects.append(group_by_object)
 
+        for table_of_from in self.tables_of_from:
+            group_by_object = GroupBy()
             for phrase in self.phrases:
                 for i in range(0, len(phrase)):
                     for table_name in self.database_dico:
@@ -552,9 +555,8 @@ class GroupByParser(Thread):
                         for column in columns:
                             if (phrase[i] == column.name) or (phrase[i] in column.equivalences):
                                 column_with_alias = self.get_column_name_with_alias_table(column.name, table_of_from)
-                                group_by_object = GroupBy()
                                 group_by_object.set_column(column_with_alias)
-                                self.group_by_objects.append(group_by_object)
+            self.group_by_objects.append(group_by_object)
 
     def join(self):
         Thread.join(self)
@@ -660,9 +662,9 @@ class Parser:
         self.distinct_keywords = config.get_distinct_keywords()
 
     @staticmethod
-    def _myCmp(s1, s2):
-        if len(s1.split()) == len(s2.split()):
-            if len(s1) >= len(s2):
+    def _myCmp(s1,s2):
+        if len(s1.split()) == len(s2.split()) :
+            if len(s1) >= len(s2) :
                 return 1
             else:
                 return -1
@@ -672,10 +674,12 @@ class Parser:
             else:
                 return -1
 
+
     @classmethod
-    def transformation_sort(cls, transition_list):
+    def transformation_sort(cls,transition_list):
         # Sort on basis of two keys split length and then token lengths in the respective priority.
-        return sorted(transition_list, key=functools.cmp_to_key(cls._myCmp), reverse=True)
+        return sorted(transition_list, key=functools.cmp_to_key(cls._myCmp),reverse=True)
+
 
     def remove_accents(self, string):
         nkfd_form = unicodedata.normalize('NFKD', str(string))
@@ -706,7 +710,7 @@ class Parser:
         columns_of_where = []
 
         #sentence = self.remove_stop_words(sentence)
-        print("#######", sentence)
+        print ("#######",sentence)
 
         # input_for_finding_value = sentence.rstrip(string.punctuation.replace('"', '').replace("'", ""))
         columns_of_values_of_where = []
@@ -734,7 +738,7 @@ class Parser:
                 # print(self.database_object.get_table_by_name(table_name).equivalences)
                 #table_name = table_name.lower()
                 if (input_word_list[i] == table_name) or (
-                        input_word_list[i] in self.database_object.get_table_by_name(table_name).equivalences):
+                            input_word_list[i] in self.database_object.get_table_by_name(table_name).equivalences):
                     if number_of_table_temp == 0:
                         start_phrase = input_word_list[:i]
                     number_of_table_temp += 1
@@ -749,7 +753,7 @@ class Parser:
                         break
                     else:
                         if (number_of_table_temp != 0) and (number_of_where_column_temp == 0) and (
-                                i == (len(input_word_list) - 1)):
+                                    i == (len(input_word_list) - 1)):
                             med_phrase = input_word_list[len(start_phrase):]
                 else:
                     continue
@@ -828,7 +832,7 @@ class Parser:
         for i in range(0, len(words)):
             for table_name in self.database_dico:
                 if (words[i] == table_name) or (
-                        words[i] in self.database_object.get_table_by_name(table_name).equivalences):
+                            words[i] in self.database_object.get_table_by_name(table_name).equivalences):
                     if number_of_table == 0:
                         select_phrase = words[:i]
                     tables_of_from.append(table_name)
@@ -862,7 +866,7 @@ class Parser:
             for i in range(0, len(from_phrase)):
                 for table in tables_of_from:
                     if (from_phrase[i] == table) or (
-                            from_phrase[i] in self.database_object.get_table_by_name(table).equivalences):
+                                from_phrase[i] in self.database_object.get_table_by_name(table).equivalences):
                         from_phrases.append(from_phrase[previous_index:i + 1])
                         previous_index = i + 1
 
@@ -892,14 +896,14 @@ class Parser:
 
         for word in from_phrase:
             for table in tables_of_from:
-                # print(word)
-                if (word == table) or (word in self.database_object.get_table_by_name(table).equivalences):
+                #print(word)
+                if (word == table)  or (word in self.database_object.get_table_by_name(table).equivalences):
                     real_tables_of_from.append(table)
 
         tables_of_from = real_tables_of_from
 
         if len(tables_of_from) == 0:
-            # print("eoor")
+            #print("eoor")
             raise ParsingException("No table name found in sentence!")
 
         group_by_phrase = []
@@ -982,5 +986,6 @@ class Parser:
             query.set_where(where_objects[i])
             query.set_group_by(group_by_objects[i])
             query.set_order_by(order_by_objects[i])
+
 
         return queries
